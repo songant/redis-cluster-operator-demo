@@ -1,0 +1,7 @@
+domain: song.com
+repo: redis-cluster
+resources:
+- group: redis
+  kind: RedisCluster
+  version: v1
+version: "2"

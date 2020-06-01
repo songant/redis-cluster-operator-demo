@@ -1,0 +1,7 @@
+apiVersion: redis.song.com/v1
+kind: RedisCluster
+metadata:
+  name: rediscluster-sample
+spec:
+  # Add fields here
+  foo: bar
