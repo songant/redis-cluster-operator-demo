@@ -17,6 +17,7 @@ limitations under the License.
 package v1
 
 import (
+	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -29,11 +30,12 @@ type RedisClusterSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of RedisCluster. Edit RedisCluster_types.go to remove/update
-	Name        string `json:"name,omitempty"`
-	Image       string `json:"image,omitempty"`
-	Replicas    int32  `json:"replicas,omitempty"`
-	MasterSize  string `json:"masterSize,omitempty"`
-	ServiceName string `json:"serviceName,omitempty"`
+	Name           string                   `json:"name,omitempty"`
+	Image          string                   `json:"image,omitempty"`
+	Replicas       int32                    `json:"replicas,omitempty"`
+	MasterSize     string                   `json:"masterSize,omitempty"`
+	ServiceName    string                   `json:"serviceName,omitempty"`
+	PasswordSecret *v1.LocalObjectReference `json:"passwordSecret,omitempty"`
 }
 
 // RedisClusterStatus defines the observed state of RedisCluster

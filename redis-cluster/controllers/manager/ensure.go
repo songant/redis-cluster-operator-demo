@@ -47,8 +47,10 @@ func (r *realEnsureResource) EnsureRedisStatefulsets(cluster *v1.RedisCluster, l
 
 func (r *realEnsureResource) ensureRedisStatefulset(cluster *v1.RedisCluster, ssName, svcName string, labels map[string]string) (bool, error) {
 	_, err := r.statefulsetClient.GetStatefulset(cluster.Namespace, ssName)
-	if err == nil { //证明redis statefulset 存在，
+	if err == nil { //证明redis statefulset 存在
 		//通过相关属性判断statefulset是否需要更新
+		//TODO:1)判断从节点的数量；2）判断镜像是否更改；3）判断创建pod时的资源限制是否更改；4）判断redis的password是否更改
+
 	} else if err != nil && errors.IsNotFound(err) {
 		//创建cr for statefulset
 		statefulsetReplicas := cluster.Spec.Replicas + 1 //每一个statefulset 创建pod的数量
